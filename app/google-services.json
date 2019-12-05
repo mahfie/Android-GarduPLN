@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "180957987493",
+    "firebase_url": "https://gardu-pln.firebaseio.com",
+    "project_id": "gardu-pln",
+    "storage_bucket": "gardu-pln.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180957987493:android:0c6f7174781f94c5b2834c",
+        "android_client_info": {
+          "package_name": "in.mroyek.gardupln"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180957987493-ufcjj6pavblp9j88dch0116ol616rljr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXIc9kJiX9Qlnd51KHvdunAqccJrKGVIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180957987493-ufcjj6pavblp9j88dch0116ol616rljr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
