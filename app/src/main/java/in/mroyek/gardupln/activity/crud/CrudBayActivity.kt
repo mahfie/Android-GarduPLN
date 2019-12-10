@@ -39,10 +39,12 @@ class CrudBayActivity : AppCompatActivity() {
             btn_close_transmisi.setOnClickListener { ll_transmisi.visibility = View.GONE }
             btn_choose_transmisi.setOnClickListener {
                 val id: String = UUID.randomUUID().toString()
-                etbay = "TRANSMISI "+et_bay_transmisi.text.toString().trim()
+                val etbay = "TRANSMISI "+et_bay_transmisi.text.toString().trim()
+                val `in` =  et_bay_transmisi_in.text.toString().trim()
                 val doc = hashMapOf(
                         "idbay" to id,
-                        "namabay" to etbay
+                        "namabay" to etbay,
+                        "in" to `in`
                 )
                 upload(doc, etbay)
             }
@@ -55,9 +57,11 @@ class CrudBayActivity : AppCompatActivity() {
             btn_choose_diameter.setOnClickListener {
                 val id: String = UUID.randomUUID().toString()
                 val etbay = "DIAMETER "+et_bay_diameter.text.toString().trim()
+                val `in` =  et_bay_diameter_in.text.toString().trim()
                 val doc = hashMapOf(
                         "idbay" to id,
-                        "namabay" to etbay
+                        "namabay" to etbay,
+                        "in" to `in`
                 )
                 upload(doc, etbay)
             }
@@ -71,9 +75,11 @@ class CrudBayActivity : AppCompatActivity() {
             btn_choose_trafo.setOnClickListener {
                 val id: String = UUID.randomUUID().toString()
                 val etbay = "TRAFO "+et_bay_trafo.text.toString().trim()
+                val `in` =  et_bay_trafo_In.text.toString().trim()
                 val doc = hashMapOf(
                         "idbay" to id,
-                        "namabay" to etbay
+                        "namabay" to etbay,
+                        "in" to `in`
                 )
                 upload(doc, etbay)
             }

@@ -4,13 +4,19 @@ import `in`.mroyek.gardupln.R
 import `in`.mroyek.gardupln.activity.beban.LaporanBebanResponses
 import android.annotation.SuppressLint
 import android.content.Context
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import java.lang.NumberFormatException
+import java.math.BigDecimal
+import kotlin.math.sign
 
 class LaporanBebanAdapter(val options: FirestoreRecyclerOptions<LaporanBebanResponses>) : FirestoreRecyclerAdapter<LaporanBebanResponses, LaporanBebanAdapter.TransmisiHolder>(options) {
     lateinit private var context: Context
@@ -42,9 +48,35 @@ class LaporanBebanAdapter(val options: FirestoreRecyclerOptions<LaporanBebanResp
 
     class TransmisiHolder(viewTransmisi: View?) : RecyclerView.ViewHolder(viewTransmisi!!) {
         var tvTransmisi: TextView = viewTransmisi!!.findViewById(R.id.tv_beban_transmisi)
+        var etI: EditText = viewTransmisi!!.findViewById(R.id.et_transmisi_I)
+        var etBeban: EditText = viewTransmisi!!.findViewById(R.id.et_transmisi_Beban)
+        var etIn: TextView = viewTransmisi!!.findViewById(R.id.et_transmisi_In)
         @SuppressLint("ResourceType")
         fun bindData(response: LaporanBebanResponses) {
             tvTransmisi.text = response.namabay.toString()
+            etIn.text = response.`in`.toString()
+            etI.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                }
+
+                override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                }
+
+                override fun afterTextChanged(editable: Editable) {
+                    val a: String = etI.text.toString()
+                    val b: String = etIn.text.toString()
+                    val c: String = 100.toString()
+
+                    if(a.trim().replace("-","").isEmpty()){
+                    }
+                    else {
+                        etBeban.setText(kali(a.toFloat(), b.toFloat(), c.toFloat()).toString())
+                    }
+                }
+            })
+        }
+        fun kali(a: Float, b: Float, c: Float): Float? {
+            return (a / b)*c
         }
     }
 }

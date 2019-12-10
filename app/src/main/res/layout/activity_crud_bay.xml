@@ -71,12 +71,19 @@
             android:hint="Bay"
             android:textColorHint="@color/colorAccent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/Widget.AppCompat.EditText"
+        <EditText
+            android:id="@+id/et_bay_transmisi_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="In"
+            android:textColorHint="@color/colorAccent" />
+
+        <EditText
+            android:id="@+id/et_bay_transmisi_total"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Total Tower"
-            android:textColorHint="@color/colorPrimaryDark" />
+            android:textColorHint="@color/colorAccent" />
 
 
         <LinearLayout
@@ -127,6 +134,13 @@
             android:hint="Bay"
             android:textColorHint="@color/colorAccent" />
 
+        <EditText
+            android:id="@+id/et_bay_diameter_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="In"
+            android:textColorHint="@color/colorAccent" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -173,6 +187,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Bay"
+            android:textColorHint="@color/colorAccent" />
+
+        <EditText
+            android:id="@+id/et_bay_trafo_In"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="In"
             android:textColorHint="@color/colorAccent" />
 
         <LinearLayout

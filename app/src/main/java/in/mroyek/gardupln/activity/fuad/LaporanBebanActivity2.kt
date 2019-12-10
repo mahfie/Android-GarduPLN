@@ -9,6 +9,8 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -93,8 +95,9 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
 
     private fun getdata(idgardu: String) {
         val query = db!!.collection("Gardu").document(idgardu).collection("Bay")
-                .whereGreaterThanOrEqualTo("namabay", "TRAFO")
+        query.whereGreaterThanOrEqualTo("namabay", "TRAFO")
         query.whereGreaterThanOrEqualTo("namabay", "TRANSMISI")
+        query.whereGreaterThanOrEqualTo("in", "in")
         val queryResponse = FirestoreRecyclerOptions.Builder<LaporanBebanResponses>()
                 .setQuery(query, LaporanBebanResponses::class.java)
                 .build()
@@ -174,6 +177,7 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
             val i = childHolder?.itemView?.et_transmisi_I?.text.toString().trim()
             val p = childHolder?.itemView?.et_transmisi_P?.text.toString().trim()
             val q = childHolder?.itemView?.et_transmisi_Q?.text.toString().trim()
+            val beban = childHolder?.itemView?.et_transmisi_Beban?.text.toString().trim()
             val `in` = childHolder?.itemView?.et_transmisi_In?.text.toString().trim()
 
             val cheid = rg_time_beban.checkedRadioButtonId
@@ -195,6 +199,7 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
                     "i" to i,
                     "p" to p,
                     "q" to q,
+                    "beban" to beban,
                     "in" to `in`
             )
             val docpor = hashMapOf(
@@ -318,9 +323,11 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
 
     class TransmisiHolder(viewTransmisi: View?) : RecyclerView.ViewHolder(viewTransmisi!!) {
         var tvTransmisi: TextView = viewTransmisi!!.findViewById(R.id.tv_beban_transmisi)
+        var etIn: TextView = viewTransmisi!!.findViewById(R.id.et_transmisi_In)
         @SuppressLint("ResourceType")
         fun bindData(response: LaporanBebanResponses) {
             tvTransmisi.text = response.namabay.toString()
+            etIn.text = response.`in`.toString()
         }
     }
 

@@ -104,8 +104,7 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
                 .setQuery(query, HistoryBebanResponse::class.java)
                 .build()
         adapter = object : FirestoreRecyclerAdapter<HistoryBebanResponse, BebanHistoryHolder>(resposeQuery) {
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int
-            ): BebanHistoryHolder {
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BebanHistoryHolder {
                 val view = LayoutInflater.from(parent.context).inflate(R.layout.item_laporan_value, parent, false)
                 context = parent.context
                 return BebanHistoryHolder(view)
@@ -142,6 +141,7 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
         val i: TextView = view.findViewById(R.id.tv_item_I)
         val p: TextView = view.findViewById(R.id.tv_item_P)
         val q: TextView = view.findViewById(R.id.tv_item_Q)
+        val beban: TextView = view.findViewById(R.id.tv_item_Beban)
         val `in`: TextView = view.findViewById(R.id.tv_item_In)
         val kondisi = tv_lapor_kondisi.text.toString()
         val cuaca = tv_lapor_cuaca.text.toString()
@@ -153,6 +153,7 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
             i.text = response.i
             p.text = response.p
             q.text = response.q
+            beban.text = response.beban
             `in`.text = response.`in`
 //            cuaca.text = tv_lapor_cuaca.text
             Log.d("CUACA", "mbuh ki ${response.cuaca}")
@@ -190,6 +191,7 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
         bulkText += "I = ${response.i} A\n"
         bulkText += "P = ${response.p} MW\n"
         bulkText += "Q = ${response.q} MVar\n"
+        bulkText += "Beban = ${response.beban} %\n"
         bulkText += "In = ${response.`in`} A\n \n"
 //        bulkText += "$getCuaca \n"
     }

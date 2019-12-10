@@ -10,6 +10,7 @@ class HistoryBebanResponse {
     var i: String? = null
     var p: String? = null
     var q: String? = null
+    var beban: String? = null
     var `in`: String? = null
     var cuaca: String? = null
 //    var laporan: List<String>? = null\
@@ -26,6 +27,7 @@ class HistoryBebanResponse {
         this.i = i
         this.p = p
         this.q = q
+        this.beban = beban
         this.`in` = `in`
         this.cuaca = cuaca
     }
