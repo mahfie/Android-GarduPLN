@@ -23,7 +23,7 @@ class LaporanBebanAdapter : FirestoreRecyclerAdapter<LaporanBebanResponses,Lapor
     class TransmisiHolder(viewTransmisi: View) : RecyclerView.ViewHolder(viewTransmisi) {
         var tvTransmisi: TextView = viewTransmisi.findViewById(R.id.tv_beban_transmisi)
         val id: String = UUID.randomUUID().toString()
-        var ettransmisi_i: EditText = viewTransmisi.findViewById(R.id.et_transmisi_I)
+        var ettransmisi_i: EditText = viewTransmisi.findViewById(R.id.et_transmisi_I_HV)
         var ettransmisi_u: EditText = viewTransmisi.findViewById(R.id.et_transmisi_U)
         @SuppressLint("ResourceType")
         fun bindData(response: LaporanBebanResponses) {

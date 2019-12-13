@@ -5,199 +5,247 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_beban_transmisi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="5dp"
             android:text="transmisi"
             android:textAllCaps="true"
-            android:background="@color/colorPrimary"
             android:textColor="@color/colorWhite"
-            android:textStyle="bold"
             android:textSize="24dp"
-            android:padding="5dp"/>
+            android:textStyle="bold" />
 
-        <TableRow
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="U"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-
-            <EditText
-                android:id="@+id/et_transmisi_U"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
+                android:orientation="vertical">
 
-            <TextView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="U"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="I"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="P"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="Q"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="Beban"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="In"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="KV"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-        </TableRow>
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:orientation="vertical">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/et_transmisi_U"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="I"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
-            <EditText
-                android:id="@+id/et_transmisi_I"
+                    <EditText
+                        android:id="@+id/et_transmisi_I_HV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="HV"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <EditText
+                        android:id="@+id/et_transmisi_I_LV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="/"
+                        android:hint="LV"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_14ssp" />
+                </TableRow>
+
+                <EditText
+                    android:id="@+id/et_transmisi_P"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
+
+                <EditText
+                    android:id="@+id/et_transmisi_Q"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
+
+                <EditText
+                    android:id="@+id/et_transmisi_Beban"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/et_transmisi_In_HV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="HV"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <EditText
+                        android:id="@+id/et_transmisi_In_LV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="LV"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_14ssp" />
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="A"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-        </TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="KV"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="A"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="P"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="MW"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
 
-            <EditText
-                android:id="@+id/et_transmisi_P"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="MW"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-        </TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="MVar"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="%"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Q"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-
-            <EditText
-                android:id="@+id/et_transmisi_Q"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="MVar"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="Beban"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-
-            <EditText
-                android:id="@+id/et_transmisi_Beban"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="numberDecimal"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="%"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="In"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-
-            <EditText
-                android:id="@+id/et_transmisi_In"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="numberDecimal|numberSigned"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="A"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/_14ssp" />
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:text="A"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_14ssp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

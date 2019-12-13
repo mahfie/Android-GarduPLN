@@ -67,7 +67,7 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
 
     private fun setTanggal() {
         val myCalendar = Calendar.getInstance()
-        date = DatePickerDialog.OnDateSetListener { datePicker, year, monthOfYear, dayOfMonth ->
+        date = DatePickerDialog.OnDateSetListener {datePicker, year, monthOfYear, dayOfMonth ->
             myCalendar.set(Calendar.YEAR, year)
             myCalendar.set(Calendar.MONTH, monthOfYear)
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
@@ -97,7 +97,8 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
         val query = db!!.collection("Gardu").document(idgardu).collection("Bay")
         query.whereGreaterThanOrEqualTo("namabay", "TRAFO")
         query.whereGreaterThanOrEqualTo("namabay", "TRANSMISI")
-        query.whereGreaterThanOrEqualTo("in", "in")
+        query.whereGreaterThanOrEqualTo("inhv", "inhv")
+        query.whereGreaterThanOrEqualTo("inlv", "inlv")
         val queryResponse = FirestoreRecyclerOptions.Builder<LaporanBebanResponses>()
                 .setQuery(query, LaporanBebanResponses::class.java)
                 .build()
@@ -174,11 +175,13 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
 //            val namabay = childHolder?.itemView?.tv_beban_transmisi?.text.toString().trim()
             val namabay = childHolder?.itemView?.tv_beban_transmisi?.text.toString().trim()
             val u = childHolder?.itemView?.et_transmisi_U?.text.toString().trim()
-            val i = childHolder?.itemView?.et_transmisi_I?.text.toString().trim()
+            val ihv = childHolder?.itemView?.et_transmisi_I_HV?.text.toString().trim()
+            val ilv = childHolder?.itemView?.et_transmisi_I_LV?.text.toString().trim()
             val p = childHolder?.itemView?.et_transmisi_P?.text.toString().trim()
             val q = childHolder?.itemView?.et_transmisi_Q?.text.toString().trim()
             val beban = childHolder?.itemView?.et_transmisi_Beban?.text.toString().trim()
-            val `in` = childHolder?.itemView?.et_transmisi_In?.text.toString().trim()
+            val inhv = childHolder?.itemView?.et_transmisi_In_HV?.text.toString().trim()
+            val inlv = childHolder?.itemView?.et_transmisi_In_LV?.text.toString().trim()
 
             val cheid = rg_time_beban.checkedRadioButtonId
             val valueRg = findViewById<RadioButton>(cheid)
@@ -196,11 +199,13 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
                     "tanggal" to tv_date.text.toString().trim(),
                     "waktu" to valueRg.text.toString().trim(),
                     "u" to u,
-                    "i" to i,
+                    "ihv" to ihv,
+                    "ilv" to ilv,
                     "p" to p,
                     "q" to q,
                     "beban" to beban,
-                    "in" to `in`
+                    "inhv" to inhv,
+                    "inlv" to inlv
             )
             val docpor = hashMapOf(
                     "tanggal" to tv_date.text.toString().trim(),
@@ -321,7 +326,7 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
         rvBebanTransmisi.layoutManager = layoutTransmisi
     }
 
-    class TransmisiHolder(viewTransmisi: View?) : RecyclerView.ViewHolder(viewTransmisi!!) {
+    /*class TransmisiHolder(viewTransmisi: View?) : RecyclerView.ViewHolder(viewTransmisi!!) {
         var tvTransmisi: TextView = viewTransmisi!!.findViewById(R.id.tv_beban_transmisi)
         var etIn: TextView = viewTransmisi!!.findViewById(R.id.et_transmisi_In)
         @SuppressLint("ResourceType")
@@ -329,7 +334,7 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
             tvTransmisi.text = response.namabay.toString()
             etIn.text = response.`in`.toString()
         }
-    }
+    }*/
 
     override fun onStart() {
         super.onStart()

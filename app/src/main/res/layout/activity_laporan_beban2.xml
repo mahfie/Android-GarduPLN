@@ -98,8 +98,7 @@
                 android:id="@+id/rvBebanTransmisi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                tools:listitem="@layout/item_transmisi" />
+                android:layout_marginBottom="10dp" />
 
             <View
                 android:layout_width="match_parent"

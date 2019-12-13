@@ -8,6 +8,8 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.*
 import android.widget.TextView
@@ -105,7 +107,7 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
                 .build()
         adapter = object : FirestoreRecyclerAdapter<HistoryBebanResponse, BebanHistoryHolder>(resposeQuery) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BebanHistoryHolder {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_laporan_value, parent, false)
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_history_detail_beban, parent, false)
                 context = parent.context
                 return BebanHistoryHolder(view)
             }
@@ -138,11 +140,13 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
         val waktu: TextView = view.findViewById(R.id.item_detail_history_jam)*/
         val namabay: TextView = view.findViewById(R.id.tv_item_title_laporan)
         val u: TextView = view.findViewById(R.id.tv_item_U)
-        val i: TextView = view.findViewById(R.id.tv_item_I)
+        var ihv: TextView = view.findViewById(R.id.tv_item_I_HV)
+        val ilv: TextView = view.findViewById(R.id.tv_item_I_LV)
         val p: TextView = view.findViewById(R.id.tv_item_P)
         val q: TextView = view.findViewById(R.id.tv_item_Q)
         val beban: TextView = view.findViewById(R.id.tv_item_Beban)
-        val `in`: TextView = view.findViewById(R.id.tv_item_In)
+        val inhv: TextView = view.findViewById(R.id.tv_item_In_HV)
+        var inlv: TextView = view.findViewById(R.id.tv_item_In_LV)
         val kondisi = tv_lapor_kondisi.text.toString()
         val cuaca = tv_lapor_cuaca.text.toString()
         //        var rvItemLaporanHistory: RecyclerView = view.findViewById(R.id.rv_item_laporanbeban_history)
@@ -150,11 +154,13 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
             copyText(response, kondisi, cuaca)
             namabay.text = response.namabay
             u.text = response.u
-            i.text = response.i
+            ihv.text = response.ihv
+            ilv.text = response.ilv
             p.text = response.p
             q.text = response.q
             beban.text = response.beban
-            `in`.text = response.`in`
+            inhv.text = response.inhv
+            inlv.text = response.inlv
 //            cuaca.text = tv_lapor_cuaca.text
             Log.d("CUACA", "mbuh ki ${response.cuaca}")
             Log.d("CUACA", "${response.namabay}")
@@ -169,7 +175,6 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
                  loadItem(context, response.laporan)
  //                Log.d("TESS", "LAPORAN = ${response.laporan}")
              }*/
-
         }
 
         /* private fun loadItem(context: Context, laporan: List<Lapor>?) {
@@ -188,11 +193,11 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
     private fun copyText(response: HistoryBebanResponse, kondisi: String, cuaca: String) {
         bulkText += "*▶ ${response.namabay}*\n"
         bulkText += "U = ${response.u} KV\n"
-        bulkText += "I = ${response.i} A\n"
+        bulkText += "I = ${response.ihv}${response.ilv} A\n"
         bulkText += "P = ${response.p} MW\n"
         bulkText += "Q = ${response.q} MVar\n"
-        bulkText += "Beban = ${response.beban} %\n"
-        bulkText += "In = ${response.`in`} A\n \n"
+        bulkText += "_Beban = ${response.beban} %_\n"
+        bulkText += "In = ${response.inhv}${response.inlv} A\n \n"
 //        bulkText += "$getCuaca \n"
     }
 

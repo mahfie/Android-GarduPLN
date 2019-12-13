@@ -16,6 +16,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import java.lang.NumberFormatException
 import java.math.BigDecimal
+import java.text.DecimalFormat
 import kotlin.math.sign
 
 class LaporanBebanAdapter(val options: FirestoreRecyclerOptions<LaporanBebanResponses>) : FirestoreRecyclerAdapter<LaporanBebanResponses, LaporanBebanAdapter.TransmisiHolder>(options) {
@@ -48,14 +49,34 @@ class LaporanBebanAdapter(val options: FirestoreRecyclerOptions<LaporanBebanResp
 
     class TransmisiHolder(viewTransmisi: View?) : RecyclerView.ViewHolder(viewTransmisi!!) {
         var tvTransmisi: TextView = viewTransmisi!!.findViewById(R.id.tv_beban_transmisi)
-        var etI: EditText = viewTransmisi!!.findViewById(R.id.et_transmisi_I)
+        var etIhv: EditText = viewTransmisi!!.findViewById(R.id.et_transmisi_I_HV)
+        var etIlv: TextView = viewTransmisi!!.findViewById(R.id.et_transmisi_I_LV)
         var etBeban: EditText = viewTransmisi!!.findViewById(R.id.et_transmisi_Beban)
-        var etIn: TextView = viewTransmisi!!.findViewById(R.id.et_transmisi_In)
+        var etInhv: TextView = viewTransmisi!!.findViewById(R.id.et_transmisi_In_HV)
+        var etInlv: TextView = viewTransmisi!!.findViewById(R.id.et_transmisi_In_LV)
         @SuppressLint("ResourceType")
         fun bindData(response: LaporanBebanResponses) {
             tvTransmisi.text = response.namabay.toString()
-            etIn.text = response.`in`.toString()
-            etI.addTextChangedListener(object : TextWatcher {
+            etInlv.addTextChangedListener(object : TextWatcher{
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
+
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
+
+                override fun afterTextChanged(p0: Editable?) {
+                    if (!etInlv.text.toString().trim().equals("null")){
+                    }
+                    else{etIlv.text = ""
+                        etInlv.text = ""
+                        etIlv.visibility = View.GONE
+                        etInlv.visibility = View.GONE
+                    }
+                }
+            })
+            etInhv.text = response.inhv.toString()
+            etInlv.text = response.inlv.toString()
+            etIhv.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
                 }
 
@@ -63,14 +84,14 @@ class LaporanBebanAdapter(val options: FirestoreRecyclerOptions<LaporanBebanResp
                 }
 
                 override fun afterTextChanged(editable: Editable) {
-                    val a: String = etI.text.toString()
-                    val b: String = etIn.text.toString()
+                    val a: String = etIhv.text.toString()
+                    val b: String = etInhv.text.toString()
                     val c: String = 100.toString()
 
                     if(a.trim().replace("-","").isEmpty()){
                     }
                     else {
-                        etBeban.setText(kali(a.toFloat(), b.toFloat(), c.toFloat()).toString())
+                        etBeban.setText(kali(a.toFloat(), b.toFloat(), c.toFloat()).toString().format("0.##", etBeban))
                     }
                 }
             })

@@ -190,10 +190,17 @@
             android:textColorHint="@color/colorAccent" />
 
         <EditText
-            android:id="@+id/et_bay_trafo_In"
+            android:id="@+id/et_bay_trafo_Inhv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="In"
+            android:hint="In HV"
+            android:textColorHint="@color/colorAccent" />
+
+        <EditText
+            android:id="@+id/et_bay_trafo_Inlv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="In LV"
             android:textColorHint="@color/colorAccent" />
 
         <LinearLayout
