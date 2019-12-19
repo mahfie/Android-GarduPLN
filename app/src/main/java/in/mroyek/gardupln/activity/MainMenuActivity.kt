@@ -19,6 +19,7 @@ class MainMenuActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
         cv_laporan_beban.setOnClickListener(this)
+        cv_laporan_gangguan.setOnClickListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

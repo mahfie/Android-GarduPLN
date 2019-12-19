@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -74,24 +75,49 @@ class BayActivity : AppCompatActivity() {
 
             override fun onBindViewHolder(holder: BayHolder, position: Int, response: BayResponse) {
                 holder.bindData(response)
-                holder.btnDelete.setOnClickListener {
+                /*holder.btnDelete.setOnClickListener {
                     val iddel = bayResponse.snapshots.getSnapshot(position).id
                     db.collection("Bay").document(iddel)
                             .delete()
                             .addOnCompleteListener { Toast.makeText(applicationContext, "OKE", Toast.LENGTH_SHORT).show() }
                             .addOnFailureListener { Toast.makeText(applicationContext, "GAGAL", Toast.LENGTH_SHORT).show() }
-                }
+                }*/
             }
         }
         adapter!!.notifyDataSetChanged()
         rv_bay.adapter = adapter
     }
 
-    class BayHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class BayHolder(view: View) : RecyclerView.ViewHolder(view) {
         var tvBay: TextView = view.findViewById(R.id.tv_bay)
         val btnDelete: ImageView = view.findViewById(R.id.iv_delete_bay)
         fun bindData(response: BayResponse) {
             tvBay.text = response.namabay
+            btnDelete.setOnClickListener {
+                val mAlerttDialog = AlertDialog.Builder(this@BayActivity)
+                mAlerttDialog.setTitle("Hapus Bay")
+                mAlerttDialog.setMessage("Apakah anda yakin?")
+                mAlerttDialog.setPositiveButton("YA"){dialog, id ->
+                    hapusDokumen(response.namabay)
+                    Toast.makeText(this@BayActivity, "OKE", Toast.LENGTH_SHORT).show()
+                }
+                mAlerttDialog.setNegativeButton("TIDAK"){dialog, id ->
+                    dialog.dismiss()
+                }
+                mAlerttDialog.show()
+            }
+        }
+        private fun hapusDokumen(namabay: String?) {
+            var deleted = 0
+            val koleksi: Query = db.collection("Gardu").document(idgardu).collection("Bay").document("$namabay").collection("$namabay")
+            koleksi.get()
+                    .addOnCompleteListener {
+                        for (doc in it.result?.documents!!) {
+                            doc.reference.delete()
+                            ++deleted
+                        }
+                    }
+            db.collection("Gardu").document(idgardu).collection("Bay").document("$namabay").delete()
         }
     }
     /*private fun choiceDialog(namabay: String, idgardu: String, idbay: String) {

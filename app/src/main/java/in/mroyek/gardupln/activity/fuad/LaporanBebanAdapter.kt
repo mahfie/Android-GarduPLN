@@ -53,12 +53,16 @@ class LaporanBebanAdapter(val options: FirestoreRecyclerOptions<LaporanBebanResp
         var etIhv: EditText = viewTransmisi!!.findViewById(R.id.et_transmisi_I_HV)
         var etIlv: TextView = viewTransmisi!!.findViewById(R.id.et_transmisi_I_LV)
         var etBeban: EditText = viewTransmisi!!.findViewById(R.id.et_transmisi_Beban)
-        var etQ: EditText = viewTransmisi!!.findViewById(R.id.et_transmisi_Q)
         var etInhv: TextView = viewTransmisi!!.findViewById(R.id.et_transmisi_In_HV)
         var etInlv: TextView = viewTransmisi!!.findViewById(R.id.et_transmisi_In_LV)
         @SuppressLint("ResourceType")
         fun bindData(response: LaporanBebanResponses) {
             tvTransmisi.text = response.namabay.toString()
+            etIlv.setOnFocusChangeListener { view, hasFocus ->
+                if (hasFocus) {
+                    etIlv.text = ("/")
+                }
+            }
             etInlv.addTextChangedListener(object : TextWatcher{
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
@@ -93,7 +97,7 @@ class LaporanBebanAdapter(val options: FirestoreRecyclerOptions<LaporanBebanResp
                     }
                     else {
                         val c = kali(a.toDouble(), b.toDouble())
-                        val d = DecimalFormat("#,###.00")
+                        val d = DecimalFormat("#,##0.0")
                         val e = d.format(c)
                         etBeban.setText(e.toString())
                     }

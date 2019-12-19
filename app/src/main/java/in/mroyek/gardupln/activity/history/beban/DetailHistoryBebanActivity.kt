@@ -34,6 +34,7 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
     private var getKondisi: String? = ""
     private var getCuaca: String? = ""
     lateinit var idgardu: String
+    private var isClicked: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_history_beban)
@@ -58,8 +59,11 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.copy -> {
-                copyTextToClipboard()
-                Toast.makeText(applicationContext, "TERSALIN", Toast.LENGTH_SHORT).show()
+                if (!isClicked){
+                    isClicked = true
+                    copyTextToClipboard()
+                    Toast.makeText(applicationContext, "TERSALIN", Toast.LENGTH_SHORT).show()
+                }
             }
         }
         return super.onOptionsItemSelected(item)
@@ -121,7 +125,10 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
         }
         adapter.notifyDataSetChanged()
         rv_historyDetailBeban.adapter = adapter
+        rv_historyDetailBeban.viewTreeObserver.addOnGlobalLayoutListener { scrollToEnd() }
     }
+
+    private fun scrollToEnd() = (adapter.itemCount - 1).takeIf { it > 0 }?.let(rv_historyDetailBeban::smoothScrollToPosition)
 
     private fun init() {
         val intent = intent.extras

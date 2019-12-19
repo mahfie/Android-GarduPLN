@@ -6,8 +6,12 @@ import `in`.mroyek.gardupln.activity.GarduActivity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputFilter
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,7 +22,6 @@ import kotlin.collections.HashMap
 
 class CrudBayActivity : AppCompatActivity() {
 
-    lateinit var etbay: String
     lateinit var idgardu: String
     private val db: FirebaseFirestore? = FirebaseFirestore.getInstance()
 
@@ -36,16 +39,37 @@ class CrudBayActivity : AppCompatActivity() {
             ll_transmisi.visibility = View.VISIBLE
             ll_diameter.visibility = View.GONE
             ll_trafo.visibility = View.GONE
+            /*et_bay_transmisi.setText("PHT")
+            et_bay_transmisi.setSelection(et_bay_transmisi.text.length)
+            et_bay_transmisi.addTextChangedListener(object :TextWatcher{
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
+
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
+
+                override fun afterTextChanged(p0: Editable?) {
+                    if (!p0.toString().startsWith("PHT")){
+                        et_bay_transmisi.setText("PHT")
+                        et_bay_transmisi.setSelection(et_bay_transmisi.text.length)
+                    }
+                }
+            })*/
+            et_bay_transmisi.filters = et_bay_transmisi.filters + InputFilter.AllCaps()
             btn_close_transmisi.setOnClickListener { ll_transmisi.visibility = View.GONE }
             btn_choose_transmisi.setOnClickListener {
                 val id: String = UUID.randomUUID().toString()
-                val etbay = "TRANSMISI "+et_bay_transmisi.text.toString().trim()
+                val etbay = et_bay_transmisi.text.toString().trim()
                 val inhv =  et_bay_transmisi_in.text.toString().trim()
+                val tower = et_bay_transmisi_tower.text.toString().trim()
+                val jarak = et_bay_transmisi_jarak.text.toString().trim()
                 val doc = hashMapOf(
                         "idbay" to id,
                         "namabay" to etbay,
-                        "inhv" to inhv
-                )
+                        "inhv" to inhv,
+                        "tower" to tower,
+                        "jarak" to jarak
+                        )
                 upload(doc, etbay)
             }
         }
@@ -53,10 +77,11 @@ class CrudBayActivity : AppCompatActivity() {
             ll_diameter.visibility = View.VISIBLE
             ll_transmisi.visibility = View.GONE
             ll_trafo.visibility = View.GONE
+            et_bay_diameter.filters = et_bay_transmisi.filters + InputFilter.AllCaps()
             btn_close_diameter.setOnClickListener { ll_diameter.visibility = View.GONE }
             btn_choose_diameter.setOnClickListener {
                 val id: String = UUID.randomUUID().toString()
-                val etbay = "DIAMETER "+et_bay_diameter.text.toString().trim()
+                val etbay = et_bay_diameter.text.toString().trim()
                 val inhv =  et_bay_diameter_in.text.toString().trim()
                 val doc = hashMapOf(
                         "idbay" to id,
@@ -71,10 +96,11 @@ class CrudBayActivity : AppCompatActivity() {
             ll_trafo.visibility = View.VISIBLE
             ll_transmisi.visibility = View.GONE
             ll_diameter.visibility = View.GONE
+            et_bay_trafo.filters = et_bay_transmisi.filters + InputFilter.AllCaps()
             btn_close_trafo.setOnClickListener { ll_trafo.visibility = View.GONE }
             btn_choose_trafo.setOnClickListener {
                 val id: String = UUID.randomUUID().toString()
-                val etbay = "TRAFO "+et_bay_trafo.text.toString().trim()
+                val etbay = et_bay_trafo.text.toString().trim()
                 val inhv =  et_bay_trafo_Inhv.text.toString().trim()
                 val inlv =  "/"+et_bay_trafo_Inlv.text.toString().trim()
                 val doc = hashMapOf(

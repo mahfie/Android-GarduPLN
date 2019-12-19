@@ -95,10 +95,10 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
 
     private fun getdata(idgardu: String) {
         val query = db!!.collection("Gardu").document(idgardu).collection("Bay")
-        query.whereGreaterThanOrEqualTo("namabay", "TRAFO")
-        query.whereGreaterThanOrEqualTo("namabay", "TRANSMISI")
-        query.whereGreaterThanOrEqualTo("inhv", "inhv")
-        query.whereGreaterThanOrEqualTo("inlv", "inlv")
+                .whereGreaterThanOrEqualTo("namabay", "PENGHANTAR")
+        query.whereLessThanOrEqualTo("namabay", "TRAFO")
+                .whereEqualTo("inhv", "inhv")
+                .whereEqualTo("inlv", "inlv")
         val queryResponse = FirestoreRecyclerOptions.Builder<LaporanBebanResponses>()
                 .setQuery(query, LaporanBebanResponses::class.java)
                 .build()
