@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_laporan_beban.tv_date
@@ -211,7 +212,8 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
                     "tanggal" to tv_date.text.toString().trim(),
                     "waktu" to valueRg.text.toString().trim(),
                     "kondisi" to kondisi,
-                    "cuaca" to cuaca
+                    "cuaca" to cuaca,
+                    "timeStamp" to System.currentTimeMillis().toString().trim()
             )
             /*val docCuaca = hashMapOf(
                     "cuaca" to cuaca

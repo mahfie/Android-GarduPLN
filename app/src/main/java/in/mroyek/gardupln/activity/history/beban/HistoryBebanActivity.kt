@@ -38,7 +38,7 @@ class HistoryBebanActivity : AppCompatActivity() {
          val date = intent?.getString("tanggal")*/
 
 //        val query: Query = db.collection("Laporin").document(date.toString()).collection("Laporr")
-        val query: Query = db.collection("Gardu").document(idgardu).collection("Laporin")
+        val query: Query = db.collection("Gardu").document(idgardu).collection("Laporin").orderBy("timeStamp", Query.Direction.DESCENDING)
         val bebanresponse = FirestoreRecyclerOptions.Builder<LaporanBebanResponses>()
                 .setQuery(query, LaporanBebanResponses::class.java).build()
         adapter = object : FirestoreRecyclerAdapter<LaporanBebanResponses, BebanHolder>(bebanresponse) {

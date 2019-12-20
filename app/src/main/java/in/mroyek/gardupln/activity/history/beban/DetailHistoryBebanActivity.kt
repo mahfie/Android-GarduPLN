@@ -42,7 +42,7 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
         idgardu = sharePref.getString(GarduActivity.IDGARDU, "").toString()
         init()
         bulkText += "*Realisasi Beban $gardu* \n"
-        bulkText += "Tanggal $tanggal, "
+        bulkText += "Tanggal ${tanggal.replace("-", "/")}, "
         bulkText += "Pukul $waktu \n \n"
 //        loadData()
         getDataHistory(idgardu)
