@@ -1,290 +1,338 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <TableRow
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="156dp"
-            android:layout_height="wrap_content"
-            android:text="FL : "
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
+        android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/et_gangguan_FL"
-            android:layout_width="wrap_content"
+            android:id="@+id/et_gangguan_Catatan"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
-
-    <EditText
-        android:id="@+id/et_gangguan_Catatan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Catatan"
-        android:lines="3"
-        android:textColorHint="@color/colorPrimary"
-        android:textSize="@dimen/_14ssp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Counter PMT"
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/_14ssp" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="R : "
-            android:textColor="@color/colorPrimary"
+            android:hint="Catatan"
+            android:lines="3"
+            android:textColorHint="@color/colorPrimary"
             android:textSize="@dimen/_14ssp" />
 
-        <EditText
-            android:id="@+id/et_counterPMT_R"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FL : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="S : "
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
+            <EditText
+                android:id="@+id/et_gangguan_FL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
 
-        <EditText
-            android:id="@+id/et_counterPMT_S"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="4dp"
+            android:background="@color/colorPrimary"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="T : "
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
+            android:padding="5dp"
+            android:gravity="center"
+            android:hint="No Tower"
+            android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/et_counterPMT_T"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Counter Gangguan"
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/_14ssp" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="4dp"
+            android:background="@color/colorPrimary"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="R : "
-            android:textColor="@color/colorPrimary"
+            android:text="Counter PMT"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="8dp"
             android:textSize="@dimen/_14ssp" />
 
-        <EditText
-            android:id="@+id/et_counterGangguan_R"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:id="@+id/et_counterPMT_R"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:id="@+id/et_counterPMT_S"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:id="@+id/et_counterPMT_T"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="S : "
-            android:textColor="@color/colorPrimary"
+            android:text="Counter Gangguan"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/_14ssp" />
 
-        <EditText
-            android:id="@+id/et_counterGangguan_S"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:id="@+id/et_counterGangguan_R"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:id="@+id/et_counterGangguan_S"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:id="@+id/et_counterGangguan_T"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="T : "
-            android:textColor="@color/colorPrimary"
+            android:text="Counter LA"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/_14ssp" />
 
-        <EditText
-            android:id="@+id/et_counterGangguan_T"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Counter LA"
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/_14ssp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/et_counterLA_R"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="R : "
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/et_counterLA_R"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/et_counterLA_S"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="S : "
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/et_counterLA_S"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/et_counterLA_T"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="T : "
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="4dp"
+            android:background="@color/colorPrimary"/>
 
-        <EditText
-            android:id="@+id/et_counterLA_T"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cuaca"
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/_14ssp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cuaca"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/et_gangguan_cuaca"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Beban Sebelum Padam"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
+        </TableRow>
 
-        <EditText
-            android:id="@+id/et_gangguan_bebanPadam"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="A"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
-    </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beban Sebelum Padam"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Beban Setelah Normal"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
+            <EditText
+                android:id="@+id/et_gangguan_bebanPadam"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
 
-        <EditText
-            android:id="@+id/et_gangguan_bebanNormal"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+        </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="A"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
-    </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beban Setelah Normal"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Analisa Penyebab"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_14ssp" />
+            <EditText
+                android:id="@+id/et_gangguan_bebanNormal"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
 
-        <EditText
-            android:id="@+id/et_gangguan_analisa"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary" />
-    </TableRow>
-</TableLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Analisa Penyebab"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:id="@+id/et_gangguan_analisa"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
+    </TableLayout>
+
+
+</ScrollView>

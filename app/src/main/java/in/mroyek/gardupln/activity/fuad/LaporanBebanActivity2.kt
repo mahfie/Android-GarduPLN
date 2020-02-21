@@ -197,8 +197,6 @@ class LaporanBebanActivity2 : AppCompatActivity(), View.OnClickListener {
             )*/
             val doc = hashMapOf(
                     "namabay" to namabay,
-                    "tanggal" to tv_date.text.toString().trim(),
-                    "waktu" to valueRg.text.toString().trim(),
                     "u" to u,
                     "ihv" to ihv,
                     "ilv" to ilv,

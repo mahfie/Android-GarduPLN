@@ -70,7 +70,7 @@ class DetailHistoryBebanActivity : AppCompatActivity() {
     }
 
     private fun copyTextToClipboard() {
-        bulkText += "Sistem $gardu kondisi $getKondisi, cuaca $getCuaca"
+        bulkText += "Sistem dan Jaringan kondisi *$getKondisi*, cuaca *$getCuaca*"
         val clipboardManager: ClipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clipData: ClipData = ClipData.newPlainText("Laporan", bulkText)
         clipboardManager.setPrimaryClip(clipData)

@@ -19,7 +19,7 @@
         android:id="@+id/et_tambah_gardu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Gardu"
+        android:hint="Ex : GI Kebumen"
         android:textColorHint="@color/colorAccent" />
 
     <LinearLayout

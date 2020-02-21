@@ -1,11 +1,13 @@
 package `in`.mroyek.gardupln.activity.inspeksi1
 
 import `in`.mroyek.gardupln.R
+import `in`.mroyek.gardupln.activity.GarduActivity
 import `in`.mroyek.gardupln.key
 import `in`.mroyek.gardupln.model.BayResponse
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,17 +26,20 @@ class Inspeksi1Activity : AppCompatActivity() {
     private var adapter: FirestoreRecyclerAdapter<BayResponse, Holder>? = null
     private var db: FirebaseFirestore? = FirebaseFirestore.getInstance()
     private lateinit var progressDialog: ProgressDialog
+    lateinit var idgardu: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inspeksi1)
+        val sharePref: SharedPreferences = getSharedPreferences("idgardunya", 0)
+        idgardu = sharePref.getString(GarduActivity.IDGARDU, "").toString()
         init()
-        showList()
+        showList(idgardu)
     }
 
-    private fun showList() {
+    private fun showList(idgardu: String) {
         progressDialog.setTitle("loading...")
         progressDialog.show()
-        val query: Query = db!!.collection("Bay")
+        val query: Query = db!!.collection("Gardu").document(idgardu).collection("Bay")
         val response = FirestoreRecyclerOptions.Builder<BayResponse>()
                 .setQuery(query, BayResponse::class.java)
                 .build()
@@ -50,14 +55,14 @@ class Inspeksi1Activity : AppCompatActivity() {
                 holder.itemView.setOnClickListener {
                     val idbay = response.snapshots.getSnapshot(position).id
                     when {
-                        bayResponse.namabay!!.contains("transmisi") -> {
-                            pindahin("transmisi", idbay, Intent(applicationContext, Transmisi1Activity::class.java))
+                        bayResponse.namabay!!.contains("PHT") -> {
+                            pindahin("PHT", idbay, Intent(applicationContext, Transmisi1Activity::class.java))
                         }
-                        bayResponse.namabay!!.contains("diameter") -> {
-                            pindahin("diameter", idbay, Intent(applicationContext, Transmisi1Activity::class.java))
+                        bayResponse.namabay!!.contains("DIAMETER") -> {
+                            pindahin("DIAMETER", idbay, Intent(applicationContext, Transmisi1Activity::class.java))
                         }
-                        bayResponse.namabay!!.contains("trafo") -> {
-                            pindahin("trafo", idbay, Intent(applicationContext, Trafo1Activity::class.java))
+                        bayResponse.namabay!!.contains("TRAFO") -> {
+                            pindahin("TRAFO", idbay, Intent(applicationContext, Trafo1Activity::class.java))
                         }
                     }
                 }

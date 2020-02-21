@@ -13,6 +13,8 @@
         android:hint="Gardu Induk"
         android:textColor="#000"
         android:textColorHint="#000"
-        android:textSize="@dimen/_20sdp" />
+        android:textSize="@dimen/_20sdp"
+        android:background="@drawable/ic_round_corner"
+        android:padding="10dp" />
 
 </LinearLayout>

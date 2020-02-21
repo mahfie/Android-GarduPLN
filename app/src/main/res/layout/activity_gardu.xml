@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.GarduActivity">
+    tools:context=".activity.GarduActivity"
+    android:background="#EBB577">
 
     <TextView
         android:id="@+id/textView2"
