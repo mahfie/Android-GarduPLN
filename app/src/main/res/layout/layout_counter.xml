@@ -6,7 +6,65 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp">
+
+    <TableRow>
+            <TextView
+                android:id="@+id/tgl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="Tanggal"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvDate_gangguan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:textSize="@dimen/_14ssp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:hint="click me"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/jam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jam"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvTime_gangguan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:hint="click me"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/colorPrimary" />
+        </TableRow>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="4dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/nyal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sinyal"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_14ssp" />
 
         <EditText
             android:id="@+id/et_gangguan_Catatan"
@@ -332,7 +390,14 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary" />
         </TableRow>
+
+        <Button
+            android:id="@+id/btn_lapor_gangguan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lcon"
+            android:text="upload laporan"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_14ssp" />
     </TableLayout>
-
-
 </ScrollView>

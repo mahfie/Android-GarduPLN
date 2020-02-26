@@ -1,6 +1,6 @@
 package `in`.mroyek.gardupln.activity.gangguan
 
-import `in`.mroyek.gardupln.R
+/*import `in`.mroyek.gardupln.R
 import `in`.mroyek.gardupln.activity.GarduActivity
 import `in`.mroyek.gardupln.activity.history.gangguan.HistoryGangguanActivity
 import android.app.DatePickerDialog
@@ -142,4 +142,4 @@ class LaporinGangguanGombong : AppCompatActivity() {
         if (cek_vt_source_failure.isChecked) msg1 += "-${cek_vt_source_failure.text} \n"
         return msg1
     }
-}
+}*/

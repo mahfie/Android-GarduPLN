@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.crud.CrudBayActivity">
+    tools:context=".activity.crud.CrudBayActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <TextView
         android:id="@+id/id_doc"
@@ -53,8 +55,8 @@
         android:id="@+id/ll_transmisi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -111,6 +113,24 @@
                     android:text="Total Jarak"
                     android:textColor="#000"
                     android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center"
+                    android:layout_weight="1"
+                    android:text="No Tower Awal"
+                    android:textColor="#000"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center"
+                    android:layout_weight="1"
+                    android:text="Arah Tower"
+                    android:textColor="#000"
+                    android:textSize="24sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -153,6 +173,36 @@
                     android:hint="Total Jarak"
                     android:inputType="numberDecimal"
                     android:textColorHint="@color/colorAccent" />
+
+                <EditText
+                    android:id="@+id/et_bay_transmisi_mulai"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="Tower Awal"
+                    android:inputType="numberDecimal"
+                    android:textColorHint="@color/colorAccent" />
+
+                <RadioGroup
+                    android:id="@+id/rg_arah_tower"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Besar" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Kecil" />
+                </RadioGroup>
+
             </LinearLayout>
         </LinearLayout>
 

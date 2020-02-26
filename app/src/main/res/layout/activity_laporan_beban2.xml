@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/_5sdp"
     android:orientation="vertical"
-    tools:context=".activity.beban.LaporanBebanActivity">
+    tools:context=".activity.beban.LaporanBebanActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <!--<TextView
         android:tanggal="@+tanggal/tv_title_bay_beban"

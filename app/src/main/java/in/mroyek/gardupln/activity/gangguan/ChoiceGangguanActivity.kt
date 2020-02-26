@@ -20,7 +20,6 @@ class ChoiceGangguanActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when(view!!.id) {
-            R.id.choice_Gombong -> startActivity(Intent(applicationContext, LaporinGangguanGombong::class.java))
             R.id.choice_purworejo -> startActivity(Intent(applicationContext, LaporinGangguanPurworejo::class.java))
             R.id.choice_trafo1 -> startActivity(Intent(applicationContext, LaporinGangguanTrafo1::class.java))
             R.id.choice_trafo2 -> startActivity(Intent(applicationContext, LaporinGangguanTrafo2::class.java))

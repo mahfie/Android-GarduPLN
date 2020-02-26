@@ -12,6 +12,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
@@ -56,6 +57,11 @@ class CrudBayActivity : AppCompatActivity() {
                 }
             })*/
             et_bay_transmisi.filters = et_bay_transmisi.filters + InputFilter.AllCaps()
+            et_bay_transmisi.setOnFocusChangeListener { view, hasFocus ->
+                if (hasFocus) {
+                    et_bay_transmisi.setText("PHT")
+                }
+            }
             btn_close_transmisi.setOnClickListener { ll_transmisi.visibility = View.GONE }
             btn_choose_transmisi.setOnClickListener {
                 val id: String = UUID.randomUUID().toString()
@@ -63,7 +69,12 @@ class CrudBayActivity : AppCompatActivity() {
                 val inhv =  et_bay_transmisi_in.text.toString().trim()
                 val tower = et_bay_transmisi_tower.text.toString().trim()
                 val jarak = et_bay_transmisi_jarak.text.toString().trim()
+                val mulai = et_bay_transmisi_mulai.text.toString().trim()
+                val cheid = rg_arah_tower.checkedRadioButtonId
+                val valueRg = findViewById<RadioButton>(cheid)
                 val doc = hashMapOf(
+                        "awal" to valueRg.text.toString().trim(),
+                        "mulai" to mulai,
                         "idbay" to id,
                         "namabay" to etbay,
                         "inhv" to inhv,
@@ -78,6 +89,11 @@ class CrudBayActivity : AppCompatActivity() {
             ll_transmisi.visibility = View.GONE
             ll_trafo.visibility = View.GONE
             et_bay_diameter.filters = et_bay_transmisi.filters + InputFilter.AllCaps()
+            et_bay_diameter.setOnFocusChangeListener { view, hasFocus ->
+                if (hasFocus) {
+                    et_bay_diameter.setText("DIAMETER")
+                }
+            }
             btn_close_diameter.setOnClickListener { ll_diameter.visibility = View.GONE }
             btn_choose_diameter.setOnClickListener {
                 val id: String = UUID.randomUUID().toString()
@@ -97,6 +113,11 @@ class CrudBayActivity : AppCompatActivity() {
             ll_transmisi.visibility = View.GONE
             ll_diameter.visibility = View.GONE
             et_bay_trafo.filters = et_bay_transmisi.filters + InputFilter.AllCaps()
+            et_bay_trafo.setOnFocusChangeListener { view, hasFocus ->
+                if (hasFocus) {
+                    et_bay_trafo.setText("TRAFO")
+                }
+            }
             btn_close_trafo.setOnClickListener { ll_trafo.visibility = View.GONE }
             btn_choose_trafo.setOnClickListener {
                 val id: String = UUID.randomUUID().toString()
