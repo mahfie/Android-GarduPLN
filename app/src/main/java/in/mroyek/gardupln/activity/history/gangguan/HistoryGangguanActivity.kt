@@ -12,6 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -43,8 +45,9 @@ class HistoryGangguanActivity : AppCompatActivity() {
             override fun onBindViewHolder(p0: GangguanHolder, p1: Int, p2: LaporanGangguanResponses) {
                 p0.bindData(p0.itemView.context, p2)
                 val tgl = p2.tanggal.toString()
+                val jam = p2.waktu.toString()
                 p0.itemView.setOnClickListener {
-                    startActivity(Intent(applicationContext, DetailGangguanHistory::class.java).putExtra("tanggal", tgl))
+                    startActivity(Intent(applicationContext, DetailGangguanHistory::class.java).putExtra("tanggal", tgl).putExtra("waktu", jam))
                 }
 
             }
@@ -67,23 +70,23 @@ class HistoryGangguanActivity : AppCompatActivity() {
                 tvJam.text = response.waktu
             }
             btnHapus.setOnClickListener {
-                hapusDokumen(response.tanggal)
+                val mAlerttDialog = AlertDialog.Builder(this@HistoryGangguanActivity)
+                mAlerttDialog.setTitle("Hapus History")
+                mAlerttDialog.setMessage("Apakah anda yakin?")
+                mAlerttDialog.setPositiveButton("YA"){dialog, id ->
+                    hapusDokumen(response.tanggal, response.waktu)
+                    Toast.makeText(this@HistoryGangguanActivity, "OKE", Toast.LENGTH_SHORT).show()
+                }
+                mAlerttDialog.setNegativeButton("TIDAK"){dialog, id ->
+                    dialog.dismiss()
+                }
+                mAlerttDialog.show()
             }
         }
 
-        private fun hapusDokumen(tanggal: String?) {
-            db.collection("Gardu").document(idgardu).collection("Gangguan").document(tanggal.toString()).delete()
-            /*var deleted = 0
-            val koleksi: Query = db.collection("Laporin").document("$tanggal $waktu").collection("Laporr")
-            koleksi.get()
-                    .addOnCompleteListener {
-                        for (doc in it.result?.documents!!) {
-                            doc.reference.delete()
-                            ++deleted
-                        }
-                    }*/
+        private fun hapusDokumen(tanggal: String?, jam: String?) {
+            db.collection("Gardu").document(idgardu).collection("Gangguan").document("$tanggal $jam").delete()
         }
-
       /*  var deleted = 0
         val koleksi: Query = db.collection("Gardu").document(idgardu).collection("Laporin").document("$tanggal $waktu").collection("Laporr")
         koleksi.get()
